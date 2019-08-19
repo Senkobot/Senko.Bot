@@ -1,0 +1,17 @@
+{
+  "Moderation.Warn.Title": "Warning | Case #{id}",
+  "Moderation.Warn.Footer": "Warned by {moderator.username}",
+  "Moderation.Warn.Reason": "Reason",
+  "Moderation.Warn.User": "User",
+  "Moderation.Warn.UserId": "User ID",
+  "Moderation.Warn.Date": "Date",
+  "Moderation.Warn.NoReason": "Moderator, please provide the reason with `{prefix}reason {id} [reason]`",
+  "Moderation.Warn.ConsoleNotAvailable": "Could not send a message to the console channel. Please check the permissions.",
+  "Moderation.Warn.NotFound": "No warning found with ID {id}.",
+  "Moderation.Warnings.Title": "Warnings of {user}",
+  "Moderation.Warnings.Stats.Header": "Amount of warnings",
+  "Moderation.Warnings.Stats": "Total: {total}\nLast year: {year}\nLast month: {month}\nLast week: {week}",
+  "Moderation.Warnings.Warnings.Header": "Warnings",
+  "Moderation.Warnings.NoConsole": "There is no console channel set. Send `>setconsolechannel` in the channel where you want the warnings to be shown.",
+  "Moderation.Console.ChannelChanged": "Alright! This is now the console channel."
+}

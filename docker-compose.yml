@@ -1,0 +1,31 @@
+version: "3"
+services:
+  bot:
+    container_name: senko-bot
+    image: senko
+    depends_on:
+     - database
+     - redis
+    environment:
+     - DATABASE__NAME=senko
+     - DATABASE__HOST=database
+     - DATABASE__PASSWORD=uHsSpJCYn8
+     - CACHE__TYPE=redis
+     - CACHE__CONNECTIONSTRING=redis
+     - DISCORD__TOKEN=
+
+  database:
+    container_name: senko-database
+    image: postgres:11
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=uHsSpJCYn8
+      - POSTGRES_DB=senko
+    volumes:
+      - ./postgres-data:/var/lib/postgresql
+
+  redis:
+    container_name: senko-redis
+    image: redis:5
+    volumes:
+      - ./redis-data:/data

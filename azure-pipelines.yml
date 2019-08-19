@@ -1,0 +1,54 @@
+name: Senko.Discord
+
+trigger:
+- develop
+
+variables:
+  version: 0.1
+  buildConfiguration: 'Release'
+  dockerId: gerardsmit
+  imageName: senko
+
+jobs:
+- job: build
+  displayName: build
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: DotNetCoreInstaller@0
+    inputs:
+      packageType: 'sdk'
+      version: '3.0.100-preview7-012821'
+    displayName: install .NET Core 3
+
+  - script: dotnet restore
+    displayName: dotnet restore
+
+  - script: dotnet build --configuration $(buildConfiguration) --no-restore
+    displayName: build
+      
+- job: deployDevBot
+  dependsOn: build
+  displayName: deploy development
+  condition: eq(variables['Build.SourceBranchName'], 'develop')
+  pool:
+    name: senko
+  steps:
+  - script: docker build -t senkodev -f src/Senko.Bot/Dockerfile --build-arg Build_SourceBranch=$(Build.SourceBranch) --build-arg Build_BuildID=$(Build.BuildID) .
+    displayName: docker build dev
+  - script: ./update.sh
+    workingDirectory: /bot/dev
+    displayName: update service
+      
+- job: deployProdBot
+  dependsOn: build
+  displayName: deploy production
+  condition: eq(variables['Build.SourceBranchName'], 'master')
+  pool:
+    name: senko
+  steps:
+  - script: docker build -t senko -f src/Senko.Bot/Dockerfile .
+    displayName: docker build prod
+  - script: ./update.sh
+    workingDirectory: /bot/prod
+    displayName: update service

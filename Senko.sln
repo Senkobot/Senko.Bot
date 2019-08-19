@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senko.Modules.Moderation", "src\Senko.Modules.Moderation\Senko.Modules.Moderation.csproj", "{225CBECF-857D-4AB5-B1E8-D384F68B2EB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senko.Bot", "src\Senko.Bot\Senko.Bot.csproj", "{3792270B-089D-466F-880A-83B8408DF735}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{63CD4A8E-A1D7-44D4-BA21-1D628AB4275B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{225CBECF-857D-4AB5-B1E8-D384F68B2EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225CBECF-857D-4AB5-B1E8-D384F68B2EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225CBECF-857D-4AB5-B1E8-D384F68B2EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225CBECF-857D-4AB5-B1E8-D384F68B2EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3792270B-089D-466F-880A-83B8408DF735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3792270B-089D-466F-880A-83B8408DF735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3792270B-089D-466F-880A-83B8408DF735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3792270B-089D-466F-880A-83B8408DF735}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{225CBECF-857D-4AB5-B1E8-D384F68B2EB6} = {63CD4A8E-A1D7-44D4-BA21-1D628AB4275B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDD7E102-FB63-4885-9F13-DBD97989130C}
+	EndGlobalSection
+EndGlobal

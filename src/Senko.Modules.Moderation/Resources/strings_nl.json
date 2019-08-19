@@ -1,0 +1,17 @@
+{
+  "Moderation.Warn.Title": "Waarschuwing | Zaak #{id}",
+  "Moderation.Warn.Footer": "Gewaarschuwd door {moderator.username}",
+  "Moderation.Warn.Reason": "Reden",
+  "Moderation.Warn.User": "Gebruiker",
+  "Moderation.Warn.UserId": "Gebruikers-ID",
+  "Moderation.Warn.Date": "Datum",
+  "Moderation.Warn.NoReason": "Moderator, geef je redenen met `{prefix}reason {id} [reden]`",
+  "Moderation.Warn.ConsoleNotAvailable": "Kon geen bericht verzenden naar de console. Controleer de rechten.",
+  "Moderation.Warn.NotFound": "Er is geen waarschuwing gevonden met ID {id}.",
+  "Moderation.Warnings.Title": "Waarschuwingen van {user}",
+  "Moderation.Warnings.Stats.Header": "Aantal waarschuwingen",
+  "Moderation.Warnings.Stats": "Totaal: {total}\nLaatste jaar: {year}\nLaatste maand: {month}\nLaastste week: {week}",
+  "Moderation.Warnings.Warnings.Header": "Waarschuwingen",
+  "Moderation.Warnings.NoConsole": "Er is geen console channel ingesteld. Stuur `>setconsolechannel` in de channel waar je de waarschuwingen in wilt hebben.",
+  "Moderation.Console.ChannelChanged": "Okay! Dit is nu de console channel."
+}
