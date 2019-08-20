@@ -17,6 +17,8 @@ FROM build AS publish
 RUN dotnet publish "Senko.Bot.csproj" -c Release -o /app
 
 FROM base AS final
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.1/wait /wait
+RUN chmod +x /wait
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Senko.Bot.dll"]
+CMD /wait && dotnet Senko.Bot.dll
