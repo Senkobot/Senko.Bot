@@ -9,18 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\strings_en.json" />
-    <None Remove="Resources\strings_nl.json" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Senko.Commands.Abstractions" Version="0.1.0-pre.75" />
     <PackageReference Include="Senko.Localization" Version="0.1.0-pre.75" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\strings_nl.json" />
-    <EmbeddedResource Include="Resources\strings_en.json" />
   </ItemGroup>
 
 </Project>

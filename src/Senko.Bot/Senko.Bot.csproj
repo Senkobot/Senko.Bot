@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Senko.Modules.Core\Senko.Modules.Core.csproj" />
+    <ProjectReference Include="..\Senko.Modules.Levels\Senko.Modules.Levels.csproj" />
     <ProjectReference Include="..\Senko.Modules.Moderation\Senko.Modules.Moderation.csproj" />
   </ItemGroup>
 

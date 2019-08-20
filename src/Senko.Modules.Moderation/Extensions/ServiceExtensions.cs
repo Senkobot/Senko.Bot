@@ -14,7 +14,7 @@ namespace Senko.Modules.Moderation
     {
         public static IServiceCollection AddModerationModule(this IServiceCollection services)
         {
-            services.AddModule<ModerationModule>();
+            services.AddSingleton<IModule, ModerationModule>();
             services.AddSingleton<ConsoleService>();
             services.AddSingleton<IStringRepository>(new ResourceStringRepository(typeof(ModerationModule).Assembly));
 

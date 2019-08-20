@@ -10,6 +10,7 @@ using Senko.Commands.EfCore;
 using Senko.Events;
 using Senko.Events.Attributes;
 using Senko.Framework.Events;
+using Senko.Modules.Levels.Data.Entities;
 using Senko.Modules.Moderation.Data.Entities;
 
 namespace Senko.Bot.Data
@@ -45,6 +46,11 @@ namespace Senko.Bot.Data
             model.Entity<Setting>(builder =>
             {
                 builder.HasKey(s => new { s.GuildId, s.Key });
+            });
+
+            model.Entity<UserExperience>(builder =>
+            {
+                builder.HasKey(ue => new { ue.GuildId, ue.UserId });
             });
         }
 
