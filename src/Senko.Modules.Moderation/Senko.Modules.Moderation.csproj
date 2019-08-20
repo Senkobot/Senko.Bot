@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Senko.Commands" Version="0.1.0-pre.52" />
+    <PackageReference Include="Senko.Commands" Version="0.1.0-pre.75" />
   </ItemGroup>
 
   <ItemGroup>

@@ -65,8 +65,17 @@ namespace Senko.Modules.Moderation
             };
 
             await _warningRepository.AddAsync(warning);
-
             await _consoleService.UpdateWarningMessageAsync(context, warning, user, context.User);
+
+            var message = _localizer["Moderation.Warn.Message"].WithToken("user", user);
+            var displayReason = _consoleService.GetDisplayReason(warning);
+
+            var footer = _localizer["Moderation.Warn.Footer"]
+                .WithToken("moderator", context.User);
+
+            context.Response.AddSuccess(message)
+                .SetEmbedFooter(footer, context.User.GetAvatarUrl(size: ImageSize.x32))
+                .AddEmbedField(_localizer["Moderation.Warn.Reason"], displayReason);
         }
 
         [Command("reason", PermissionGroup.Moderator, GuildOnly = true)]
@@ -86,6 +95,8 @@ namespace Senko.Modules.Moderation
 
             await _warningRepository.UpdateAsync(warning);
             await _consoleService.UpdateWarningMessageAsync(context, warning, user, context.User);
+
+            context.Response.React(Emoji.WhiteCheckMark);
         }
 
         [Command("warnings", PermissionGroup.Moderator, GuildOnly = true)]
@@ -112,10 +123,14 @@ namespace Senko.Modules.Moderation
                 .WithToken("month", warnings.Count(w => w.Created >= lastMonth))
                 .WithToken("week", warnings.Count(w => w.Created >= lastWeek));
 
+            var warningText = warnings.Count > 0
+                ? string.Join("\n", warnings.Select(GetLine))
+                : _localizer["Moderation.Warnings.Nothing"].ToString();
+
             context.Response.AddEmbed()
                 .SetEmbedAuthor(_localizer["Moderation.Warnings.Title"].WithToken("user", user), user.GetAvatarUrl(size: ImageSize.x32))
                 .AddEmbedField(_localizer["Moderation.Warnings.Stats.Header"], stats)
-                .AddEmbedField(_localizer["Moderation.Warnings.Warnings.Header"], string.Join("\n", warnings.Select(GetLine)));
+                .AddEmbedField(_localizer["Moderation.Warnings.Header"], warningText);
         }
 
         [Command("setconsolechannel", PermissionGroup.Administrator, GuildOnly = true)]

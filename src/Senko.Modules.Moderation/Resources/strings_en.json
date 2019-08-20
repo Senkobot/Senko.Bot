@@ -11,7 +11,9 @@
   "Moderation.Warnings.Title": "Warnings of {user}",
   "Moderation.Warnings.Stats.Header": "Amount of warnings",
   "Moderation.Warnings.Stats": "Total: {total}\nLast year: {year}\nLast month: {month}\nLast week: {week}",
-  "Moderation.Warnings.Warnings.Header": "Warnings",
+  "Moderation.Warnings.Header": "Warnings",
   "Moderation.Warnings.NoConsole": "There is no console channel set. Send `>setconsolechannel` in the channel where you want the warnings to be shown.",
-  "Moderation.Console.ChannelChanged": "Alright! This is now the console channel."
+  "Moderation.Console.ChannelChanged": "Alright! This is now the console channel.",
+  "Moderation.Warnings.Nothing": "_This user doesn't have any warnings._",
+  "Moderation.Warn.Message": "{user.mention} received an warning."
 }

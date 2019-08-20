@@ -11,7 +11,9 @@
   "Moderation.Warnings.Title": "Waarschuwingen van {user}",
   "Moderation.Warnings.Stats.Header": "Aantal waarschuwingen",
   "Moderation.Warnings.Stats": "Totaal: {total}\nLaatste jaar: {year}\nLaatste maand: {month}\nLaastste week: {week}",
-  "Moderation.Warnings.Warnings.Header": "Waarschuwingen",
+  "Moderation.Warnings.Header": "Waarschuwingen",
   "Moderation.Warnings.NoConsole": "Er is geen console channel ingesteld. Stuur `>setconsolechannel` in de channel waar je de waarschuwingen in wilt hebben.",
-  "Moderation.Console.ChannelChanged": "Okay! Dit is nu de console channel."
+  "Moderation.Console.ChannelChanged": "Okay! Dit is nu de console channel.",
+  "Moderation.Warnings.Nothing": "_Deze gebruiker heeft geen waarschuwingen._",
+  "Moderation.Warn.Message": "{user.mention} heeft een waarschuwing gekregen."
 }

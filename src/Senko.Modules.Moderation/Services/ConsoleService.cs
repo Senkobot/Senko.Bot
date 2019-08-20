@@ -62,7 +62,7 @@ namespace Senko.Modules.Moderation.Services
         /// <param name="user">The warned user.</param>
         /// <param name="moderator">The moderator.</param>
         /// <returns>The message builder.</returns>
-        public Task UpdateWarningMessageAsync(
+        public async Task UpdateWarningMessageAsync(
             ulong guildId,
             ulong channelId,
             UserWarning warning,
@@ -79,7 +79,7 @@ namespace Senko.Modules.Moderation.Services
                 ChannelId = channelId
             });
 
-            return _messageContextDispatcher.DispatchAsync(
+            await _messageContextDispatcher.DispatchAsync(
                 context => UpdateWarningMessageAsync(context, warning, user, moderator),
                 features
             );
@@ -106,19 +106,7 @@ namespace Senko.Modules.Moderation.Services
             var footer = _localizer["Moderation.Warn.Footer"]
                 .WithToken("moderator", moderator);
             
-            string displayReason;
-
-            if (!string.IsNullOrEmpty(warning.Reason))
-            {
-                displayReason = warning.Reason;
-            }
-            else
-            {
-                displayReason = _localizer["Moderation.Warn.NoReason"]
-                    .WithToken("id", warning.Id)
-                    .WithToken("prefix", ">") // TODO: Get the current prefix.
-                    .ToString();
-            }
+            var displayReason = GetDisplayReason(warning);
 
             bool updateEntity;
             MessageBuilder builder;
@@ -144,12 +132,12 @@ namespace Senko.Modules.Moderation.Services
             }
 
             builder
-                .SetEmbedAuthor(title, user.GetAvatarUrl(size: ImageSize.x32))
                 .SetEmbedColor(255, 235, 59)
+                .SetEmbedAuthor(title, user.GetAvatarUrl(size: ImageSize.x32))
                 .SetEmbedFooter(footer, moderator.GetAvatarUrl(size: ImageSize.x32))
                 .AddEmbedField(_localizer["Moderation.Warn.User"], $"{user.Username}#{user.Discriminator} ({user.Mention})", true)
-                .AddEmbedField(_localizer["Moderation.Warn.Date"], warning.Created, true)
                 .AddEmbedField(_localizer["Moderation.Warn.UserId"], user.Id, true)
+                .AddEmbedField(_localizer["Moderation.Warn.Date"], warning.Created, true)
                 .AddEmbedField(_localizer["Moderation.Warn.Reason"], displayReason)
                 .Catch(args =>
                 {
@@ -168,6 +156,25 @@ namespace Senko.Modules.Moderation.Services
                     await warningRepo.UpdateAsync(warning);
                 });
             }
+        }
+
+        public string GetDisplayReason(UserWarning warning)
+        {
+            string displayReason;
+
+            if (!string.IsNullOrEmpty(warning.Reason))
+            {
+                displayReason = warning.Reason;
+            }
+            else
+            {
+                displayReason = _localizer["Moderation.Warn.NoReason"]
+                    .WithToken("id", warning.Id)
+                    .WithToken("prefix", ">") // TODO: Get the current prefix.
+                    .ToString();
+            }
+
+            return displayReason;
         }
     }
 }

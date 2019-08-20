@@ -15,12 +15,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.12" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
-    <PackageReference Include="Senko.Commands" Version="0.1.0-pre.52" />
-    <PackageReference Include="Senko.Commands.EfCore" Version="0.1.0-pre.52" />
-    <PackageReference Include="Senko.Framework" Version="0.1.0-pre.52" />
+    <PackageReference Include="Senko.Commands" Version="0.1.0-pre.75" />
+    <PackageReference Include="Senko.Commands.EfCore" Version="0.1.0-pre.75" />
+    <PackageReference Include="Senko.Framework" Version="0.1.0-pre.75" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
-    <PackageReference Include="Senko.TestFramework" Version="0.1.0-pre.52" />
+    <PackageReference Include="Senko.TestFramework" Version="0.1.0-pre.75" />
   </ItemGroup>
 
   <ItemGroup>
